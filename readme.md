@@ -1,6 +1,6 @@
 # Teclado 75 DataBlack
 
-![teclado75](https://i.imgur.com/placeholder.png)
+![teclado75](assets/foto_principal.JPEG)
 
 Un teclado mecánico custom 75% con distribución ISO, basado en el microcontrolador STM32F401 (Blackpill) y con retroiluminación RGB Matrix completa (75 LEDs WS2812).
 
@@ -53,3 +53,21 @@ Puedes entrar al bootloader de las siguientes maneras:
 ## Soporte VIA
 
 Este teclado soporta configuración en tiempo real a través de [VIA](https://usevia.app/). Asegúrate de cargar el archivo `via.json` (ubicado en la raíz de este repositorio) en la pestaña "Design" de VIA si la placa aún no ha sido aprobada en el repositorio principal de VIA.
+
+## Galería
+
+Aquí tienes algunas imágenes del proyecto:
+
+### Placa y Componentes
+![Circuito](assets/foto_circuito.jpg)
+
+### Iluminación RGB
+![RGB 1](assets/teclado_rgb.JPEG)
+![RGB 2](assets/teclado_rgb_2.JPEG)
+![RGB Lateral](assets/teclado_lado_rgb.JPEG)
+
+### Diseños y Renders
+![Teclado Amarillo](assets/teclado_amarillo.png)
+![Teclado Rojo](assets/teclado_rojo.png)
+![Teclados 1](assets/teclados_1.png)
+![Teclados 2](assets/teclados_2.png)
