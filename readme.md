@@ -1,6 +1,6 @@
 # Teclado 75 DataBlack
 
-![teclado75](https://i.imgur.com/placeholder.png) <!-- Reemplaza esto con una imagen de tu teclado -->
+![teclado75](https://i.imgur.com/placeholder.png)
 
 Un teclado mecánico custom 75% con distribución ISO, basado en el microcontrolador STM32F401 (Blackpill) y con retroiluminación RGB Matrix completa (75 LEDs WS2812).
 
@@ -12,21 +12,35 @@ Un teclado mecánico custom 75% con distribución ISO, basado en el microcontrol
   * Soporte completo para VIA y RAW HID
   * Efectos RGB Matrix avanzados
 
+## Requisitos Previos: QMK MSYS (Windows)
+
+Si estás utilizando Windows, es obligatorio usar [QMK MSYS](https://msys.qmk.fm/) para poder compilar y flashear el firmware. QMK MSYS provee el entorno Linux necesario con todas las dependencias.
+
+1. Descarga e instala la última versión de **QMK MSYS**.
+2. Abre la terminal de **QMK MSYS** (no uses CMD ni PowerShell estándar para estos comandos).
+3. Configura el entorno si es tu primera vez ejecutando `qmk setup`.
+4. Navega hasta el directorio raíz de `qmk_firmware` (ej: `cd /c/Users/TuUsuario/qmk_firmware`).
+
+*Importante:* Si utilizas o creas scripts de prueba o automatización, estos comandos deben ejecutarse dentro del entorno de QMK MSYS. Es recomendable crear scripts de bash (`.sh`) y ejecutarlos desde esa terminal para evitar errores de compilación.
+
 ## Compilar el Firmware
 
-Asegúrate de tener el entorno de QMK configurado. Para compilar el firmware por defecto para este teclado, ejecuta:
+Para compilar el firmware (`default` o `via`) para este teclado, utiliza el comando oficial del CLI de QMK. Ejecuta:
 
 ```bash
-make teclado75:default
+qmk compile -kb teclado75 -km default
 ```
+*(Puedes cambiar `default` por `via` si deseas compilar el keymap de VIA).*
 
 ## Flashear el Firmware
 
-Para flashear el firmware compilado en tu teclado, ejecuta el siguiente comando y pon tu teclado en modo bootloader cuando se te solicite:
+Para flashear el firmware compilado en la placa Blackpill (STM32F401), ejecuta el siguiente comando:
 
 ```bash
-make teclado75:default:flash
+qmk flash -kb teclado75 -km default
 ```
+
+Cuando la terminal muestre un mensaje indicando que está esperando el dispositivo, debes poner el teclado en modo bootloader.
 
 ## Entrar al modo Bootloader (DFU)
 

@@ -9,7 +9,7 @@ void send_num(uint8_t num) {
 
 void send_coord(uint8_t r, uint8_t c) {
     int old_mod = get_mods();
-    clear_mods(); // Make sure no shift/ctrl is held that might mess up output
+    clear_mods();
     tap_code(KC_R);
     if (r >= 10) { send_num(r / 10); }
     send_num(r % 10);
@@ -21,8 +21,6 @@ void send_coord(uint8_t r, uint8_t c) {
 }
 
 void matrix_init_user(void) {
-    // Note: matrix_init_user is normally standard, but keyboard post-init might be safer if matrix is not yet initialized.
-    // However, usually it's fine. We'll init the arrays here to 0 for safety.
     for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
         last_matrix[r] = matrix_get_row(r);
     }
@@ -36,8 +34,7 @@ void matrix_scan_user(void) {
         if (row_changes) {
             for (uint8_t c = 0; c < MATRIX_COLS; c++) {
                 if (row_changes & (1 << c)) {
-                    if (current_row & (1 << c)) { 
-                        // Key down event
+                    if (current_row & (1 << c)) {
                         send_coord(r, c);
                     }
                 }
@@ -48,7 +45,7 @@ void matrix_scan_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    return false; // Prevent traditional layout events from double-typing
+    return false;
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

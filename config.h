@@ -2,9 +2,8 @@
 
 #define WS2812_DI_PIN A3
 #define RGB_MATRIX_LED_COUNT 75
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200 // Limita el brillo para no quemar USB
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 200
 
-// Habilitar todos los efectos de RGB Matrix
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS
 #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
